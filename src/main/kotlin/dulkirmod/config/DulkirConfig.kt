@@ -28,14 +28,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
     )
     var customSize = 0f
 
-    @Checkbox(
-        name = "Scale Swing",
-        description = "Also scale the size of the swing animation.",
-        category = "Animations",
-        subcategory = "Animations"
-    )
-    var doesScaleSwing = true
-
     @Slider(
         name = "X",
         description = "Moves the held item. Default: 0",

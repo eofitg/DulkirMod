@@ -1,13 +1,9 @@
 package dulkirmod.features
 
 import dulkirmod.DulkirMod.Companion.config
-import dulkirmod.DulkirMod.Companion.mc
-import net.minecraft.client.entity.AbstractClientPlayer
 import net.minecraft.client.renderer.GlStateManager
-import net.minecraft.item.ItemStack
 import net.minecraft.util.MathHelper
 import kotlin.math.exp
-import kotlin.math.pow
 
 /**
  * Module to change the appearance of held items.
@@ -46,20 +42,6 @@ object ItemAnimations {
         GlStateManager.rotate(f1 * -20.0f, 0.0f, 0.0f, 1.0f)
         GlStateManager.rotate(f1 * -80.0f, 1.0f, 0.0f, 0.0f)
         GlStateManager.scale(newSize, newSize, newSize)
-        return true
-    }
-
-    /**
-     * Directly referenced by the ItemRendereMixin. If enabled will scale the item swing animation.
-     * Returns whether custom animation was performed.
-     */
-    fun scaledSwing(swingProgress: Float): Boolean {
-        if (!config.customAnimations || !config.doesScaleSwing) return false
-        val scale = exp(config.customSize)
-        val f = -0.4f * MathHelper.sin(MathHelper.sqrt_float(swingProgress) * Math.PI.toFloat()) * scale
-        val f1 = 0.2f * MathHelper.sin(MathHelper.sqrt_float(swingProgress) * Math.PI.toFloat() * 2.0f) * scale
-        val f2 = -0.2f * MathHelper.sin(swingProgress * Math.PI.toFloat()) * scale
-        GlStateManager.translate(f, f1, f2)
         return true
     }
 

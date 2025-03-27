@@ -15,9 +15,4 @@ public class MixinItemRenderer {
         if (ItemAnimations.INSTANCE.itemTransforHook(equipProgress, swingProgress)) ci.cancel();
     }
 
-    @Inject(method = "doItemUsedTransformations", at = @At("HEAD"), cancellable = true)
-    public void useTransform(float swingProgress, CallbackInfo ci) {
-        if (ItemAnimations.INSTANCE.scaledSwing(swingProgress)) ci.cancel();
-    }
-
 }

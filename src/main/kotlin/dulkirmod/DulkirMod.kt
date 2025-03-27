@@ -2,7 +2,6 @@ package dulkirmod
 
 import dulkirmod.command.*
 import dulkirmod.config.DulkirConfig
-import kotlinx.coroutines.CoroutineScope
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
 import net.minecraft.client.settings.KeyBinding
@@ -18,7 +17,6 @@ import net.minecraftforge.fml.common.gameevent.TickEvent
 import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent
 import org.lwjgl.input.Keyboard
 import java.io.File
-import kotlin.coroutines.EmptyCoroutineContext
 
 @Mod(
     modid = DulkirMod.MOD_ID,
@@ -65,12 +63,10 @@ class DulkirMod {
         const val MOD_ID = "dulkirmod"
         const val MOD_NAME = "Dulkir Mod"
         const val MOD_VERSION = "1.2.9"
-        const val CHAT_PREFIX = "§f<§3DulkirMod§f>§r"
 
         val mc: Minecraft = Minecraft.getMinecraft()
         var config = DulkirConfig
         var display: GuiScreen? = null
-        val scope = CoroutineScope(EmptyCoroutineContext)
 
         val keyBinds = arrayOf(
             KeyBinding("Open Settings", Keyboard.KEY_RCONTROL, "Dulkir Mod")
