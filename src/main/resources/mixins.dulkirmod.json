@@ -15,7 +15,6 @@
     "MixinItemRenderer",
     "MixinLayerArmorBase",
     "MixinOldAnimations",
-    "MixinRenderManager",
     "MixinSoundManager",
     "MixinWorld"
   ]

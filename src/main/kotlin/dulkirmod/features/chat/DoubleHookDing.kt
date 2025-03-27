@@ -11,7 +11,6 @@ object DoubleHookDing {
             if (DulkirConfig.doubleHookDing) {
                 val prevNote = DulkirMod.mc.gameSettings.getSoundLevel(SoundCategory.RECORDS)
                 DulkirMod.mc.gameSettings.setSoundLevel(SoundCategory.RECORDS, 1f)
-                DulkirMod.mc.thePlayer.playSound("note.pling", 1f * DulkirConfig.secretSoundVolume, 1f)
                 DulkirMod.mc.gameSettings.setSoundLevel(SoundCategory.RECORDS, prevNote)
             }
             if (DulkirConfig.removeHookMessage) event.isCanceled = true

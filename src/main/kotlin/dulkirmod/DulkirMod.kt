@@ -5,7 +5,6 @@ import dulkirmod.config.DulkirConfig
 import dulkirmod.events.ChatEvent
 import dulkirmod.features.*
 import dulkirmod.features.chat.AbiphoneDND
-import dulkirmod.features.dungeons.*
 import dulkirmod.features.rift.EffigyWaypoint
 import dulkirmod.features.rift.IchorHighlight
 import dulkirmod.features.rift.SteakDisplay
@@ -50,9 +49,7 @@ class DulkirMod {
 
         // General
         cch.registerCommand(EnchantRuneCommand())
-        cch.registerCommand(FairyCommand())
         cch.registerCommand(SettingsCommand())
-        cch.registerCommand(LeapNameCommand())
         cch.registerCommand(HurtCamCommand())
         cch.registerCommand(FarmingControlSchemeCommand())
         cch.registerCommand(DynamicKeyCommand())
@@ -71,21 +68,15 @@ class DulkirMod {
         mcBus.register(TitleUtils)
         mcBus.register(ArachneTimer)
         mcBus.register(MatchoAlert)
-        mcBus.register(Croesus)
         mcBus.register(ContainerNameUtil)
-        mcBus.register(DungeonLeap)
         mcBus.register(AbiphoneDND)
         mcBus.register(KeeperWaypoints)
         mcBus.register(ScalableTooltips)
         mcBus.register(GardenVisitorAlert)
-        mcBus.register(DragonFeatures)
-        mcBus.register(HideHealerFairy)
-        mcBus.register(SecretSounds)
         mcBus.register(BlazeSlayerFeatures)
         mcBus.register(WorldRenderUtils)
         mcBus.register(IchorHighlight)
         mcBus.register(SteakDisplay)
-        mcBus.register(ArcherHighlight)
         mcBus.register(ReaperDisplay)
         mcBus.register(ImpactDisplay)
         mcBus.register(EffigyWaypoint)
@@ -113,7 +104,6 @@ class DulkirMod {
             // Now I don't have to fetch the entries for multiple things, this just updates and caches
             // the data structure on 1s cooldown
             TabListUtils.parseTabEntries()
-            DragonFeatures.updateDragonDead()
             EffigyWaypoint.checkEffigies()
             SlayerTrackerUtil.updateSessionTime()
             lastLongUpdate = currTime

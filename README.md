@@ -36,20 +36,6 @@ DulkirMod 1.21 can be found [here](https://github.com/inglettronald/DulkirMod-Fa
 - "Dynamic Key" feature for quick Chat Macro Swapping
    - run /dk help for more info
 
-### Dungeon Features
-- Nametag cleaner for misc. dungeon stuff that is non-starred (Specifically missed by skytils)
-- Throttle Notifier
-  - custom message
-- Join Dungeon Command Chat Notification
-- Highlight specific ign in leap menu (/hl <user> or use settings menu)
-- Do not render opened chests at Croesus
-- Hide Healer Fairy
-- Wither/Blood Key Hud Element
-- Dragon Kill Boxes for M7
-- Dragon Spawn Timers for M7
-- Useful Gyro/Decoy waypoints for P5
-- Secret Chime (credit to Aton)
-
 ### Slayer Features
 - Blaze Slayer attunement display boxes (should be reliable)
 - Blaze Slayer miniboss highlight

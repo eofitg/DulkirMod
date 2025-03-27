@@ -63,10 +63,6 @@ object TabListUtils {
                     explosivity = trimmed != "INACTIVE"
                 }
 
-                trimmed == "Dungeon Stats" -> {
-                    area = "Dungeon"
-                }
-
                 trimmed.startsWith("Time Left: ") -> {
                     emptyComposter = trimmed.split(": ")[1] == "INACTIVE"
                 }
@@ -94,9 +90,6 @@ object TabListUtils {
             }
         }
 
-        if (area != "Dungeon") {
-            archerName = ""
-        }
         if (area != "Crimson Isle") {
             explosivity = false
         }

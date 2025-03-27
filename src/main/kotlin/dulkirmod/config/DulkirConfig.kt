@@ -50,29 +50,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
     var removeHookMessage = false
 
     @Switch(
-        name = "Box Archer in P5",
-        description = "blame noth",
-        category = "Random Beta Features",
-        subcategory = "Dungeons"
-    )
-    var archerBox = false
-
-    @Switch(
-        name = "Box Archer Anywhere in Dungeons",
-        description = "This will bypass the m7 check and p5 check",
-        category = "Random Beta Features",
-        subcategory = "Dungeons"
-    )
-    var archerBoxEverywhere = false
-
-    @Color(
-        name = "Archer Box color",
-        category = "Random Beta Features",
-        subcategory = "Dungeons"
-    )
-    var archBoxColor = OneColor(0, 255, 255, 255)
-
-    @Switch(
         name = "Hide Enchant Rune Particles",
         description = "ugly go bye-bye",
         category = "General",
@@ -159,30 +136,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
     var attunementDisplay = false
 
     @Switch(
-        name = "Hide Healer fairy",
-        description = "Now only runs in dungeons lol",
-        category = "Dungeons",
-        subcategory = "Dungeons"
-    )
-    var hideHealerFairy = false
-
-    @Switch(
-        name = "Hide Heart Particles",
-        description = "Useful for hyperion and healer bullshit",
-        category = "Dungeons",
-        subcategory = "Dungeons"
-    )
-    var hideHeartParticles = false
-
-    @Switch(
-        name = "Throttle Notifier",
-        description = "Im pretty sure this is mostly patched? Idk I'm leaving it in",
-        category = "Dungeons",
-        subcategory = "Dungeons"
-    )
-    var throttleNotifier = true
-
-    @Switch(
         name = "Vanquisher Broadcaster",
         description = "sends patcher sendcoords msg when you spawn a vanquisher. might make this put a waypoint later",
         category = "Random Beta Features",
@@ -206,64 +159,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
         secure = false
     )
     var dynamicCommandString = ""
-
-    @Text(
-        name = "Throttle Notifier String",
-        description = "How do you want to tell people you are throttled?",
-        category = "Dungeons",
-        subcategory = "Dungeons",
-        placeholder = "i am being throttled zzz",
-        secure = false
-    )
-    var customMessage: String = "i am being throttled zzz"
-
-    @Switch(
-        name = "Throttle Notifier Spam",
-        description = "LET EM KNOW!",
-        category = "Dungeons",
-        subcategory = "Dungeons"
-    )
-    var throttleNotifierSpam = true
-
-    @Switch(
-        name = "M7 Dragon Timer",
-        description = "Large in-world text timers to help you see when dragons will spawn.",
-        category = "Dungeons",
-        subcategory = "Dungeons"
-    )
-    var dragonTimer = false
-
-    @Switch(
-        name = "Better M7 Dragon Killbox",
-        description = "Mostly stolen from odin",
-        category = "Dungeons",
-        subcategory = "Dungeons"
-    )
-    var dragonKillBox = false
-
-    @Switch(
-        name = "Gyro Waypoints",
-        description = "Only renders in p5",
-        category = "Dungeons",
-        subcategory = "Dungeons"
-    )
-    var gyroWaypoints = false
-
-    @Switch(
-        name = "Decoy Waypoints",
-        description = "Only renders in p5",
-        category = "Dungeons",
-        subcategory = "Dungeons"
-    )
-    var decoyWaypoints = false
-
-    @Switch(
-        name = "LB Waypoints",
-        description = "Only renders in p5",
-        category = "Dungeons",
-        subcategory = "Dungeons"
-    )
-    var lbWaypoints = false
 
     @Switch(
         name = "Hide Extra Nametags",
@@ -434,81 +329,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
         text = "Import!"
     )
     fun stringToConfig() = Utils.animationStringtoConfig()
-
-
-    @Switch(
-        name = "JoinDungeon Command Confirmation",
-        description = "Chat notification when you push the button. Useful if you suck at navigating a numpad.",
-        category = "Dungeons",
-        subcategory = "Dungeons"
-    )
-    var dungeonCommandConfirm = true
-
-    @Switch(
-        name = "Hide Chests that are already opened at Croesus",
-        description = "Just doesn't render the item if it has the chest opened string",
-        category = "Dungeons",
-        subcategory = "Dungeons"
-    )
-    var hideOpenedChests = false
-
-    @Switch(
-        name = "Highlight custom player for leap in menu",
-        description = "Changes texture to green wool! Use the \"/hl\" command for convenient assignment.",
-        category = "Dungeons",
-        subcategory = "Dungeons"
-    )
-    var highlightLeap = false
-
-    @Text(
-        name = "Highlighted player name",
-        description = "case-sensitive",
-        category = "Dungeons",
-        subcategory = "Dungeons",
-        placeholder = "Dilkur",
-        secure = false
-    )
-    var highlightLeapName: String = "Dilkur"
-
-    @Switch(
-        name = "Play sound when clicking secrets in dungeons",
-        description = "Will play on levers, chests and essence",
-        category = "Dungeons",
-        subcategory = "Dungeons"
-    )
-    var secretClickSounds = false
-
-    @Slider(
-        name = "Secret Click Volume",
-        description = "Volume of click sound",
-        category = "Dungeons",
-        subcategory = "Dungeons",
-        min = 0f,
-        max = 1f,
-        step = 0
-    )
-    var secretSoundVolume = .7f
-
-    @Button(
-        name = "Demo Volume Selection",
-        description = "Plays the Random Break sound as Reference, Might add individual sliders later but this seems like enough",
-        category = "Dungeons",
-        subcategory = "Dungeons",
-        text = "Test"
-    )
-    fun demoSecretVolume() {
-        val prevMaster = DulkirMod.mc.gameSettings.getSoundLevel(SoundCategory.MASTER)
-        DulkirMod.mc.gameSettings.setSoundLevel(SoundCategory.MASTER, 1f)
-        val prevNote = DulkirMod.mc.gameSettings.getSoundLevel(SoundCategory.MASTER)
-        DulkirMod.mc.gameSettings.setSoundLevel(SoundCategory.RECORDS, 1f)
-        DulkirMod.mc.thePlayer.playSound(
-            "note.pling",
-            1f * secretSoundVolume,
-            1f
-        )
-        DulkirMod.mc.gameSettings.setSoundLevel(SoundCategory.MASTER, prevMaster)
-        DulkirMod.mc.gameSettings.setSoundLevel(SoundCategory.RECORDS, prevNote)
-    }
 
     @Switch(
         name = "Remove Selfie Camera",
@@ -752,13 +572,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
         subcategory = "Fixes"
     )
     var showReEquipAnimationWhenChangingSlots = true
-
-    @HUD(
-        name = "Wither Key Display",
-        category = "HUD",
-        subcategory = "Dungeons"
-    )
-    var witherKeyDisplayHUD: KeyHud = KeyHud()
 
     @HUD(
         name = "Pitch/Yaw Display in Garden",

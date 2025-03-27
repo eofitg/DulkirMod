@@ -19,9 +19,6 @@ object ChatEvent {
         }
         val unformatted = stripColorCodes(event.message.unformattedText)
 
-        // THROTTLE NOTIFIER
-        ThrottleNotif.handle(event, unformatted)
-
         // BRIDGE BOT STUFF - CLICKABLE LINKS!
         Bridge.handle(event)
 
@@ -33,9 +30,6 @@ object ChatEvent {
 
         // Quick vanquisher thing
         VanquisherTrigger.handle(unformatted)
-
-        // Key Hud Element
-        DungeonKeyDisplay.handle(unformatted)
 
         DoubleHookDing.handle(event, unformatted)
     }
