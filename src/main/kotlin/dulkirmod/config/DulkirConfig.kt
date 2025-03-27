@@ -3,16 +3,13 @@ package dulkirmod.config
 import cc.polyfrost.oneconfig.config.Config
 import cc.polyfrost.oneconfig.config.annotations.*
 import cc.polyfrost.oneconfig.config.annotations.Number
-import cc.polyfrost.oneconfig.config.core.OneColor
 import cc.polyfrost.oneconfig.config.data.Mod
 import cc.polyfrost.oneconfig.config.data.ModType
 import dulkirmod.DulkirMod
 import dulkirmod.overlays.GardenInfoHud
-import dulkirmod.overlays.KeyHud
 import dulkirmod.overlays.SlayerTracker
 import dulkirmod.overlays.YawDisplayHud
 import dulkirmod.utils.Utils
-import net.minecraft.client.audio.SoundCategory
 
 
 object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-config.json") {
@@ -32,22 +29,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
         subcategory = "General"
     )
     var blankStandRemoval = false
-
-    @Switch(
-        name = "Double Hook Ding",
-        description = "blame deathstreeks",
-        category = "Random Beta Features",
-        subcategory = "Fishing"
-    )
-    var doubleHookDing = false
-
-    @Switch(
-        name = "Remove Double Hook Message",
-        description = "i wonder what this does",
-        category = "Random Beta Features",
-        subcategory = "Fishing"
-    )
-    var removeHookMessage = false
 
     @Switch(
         name = "Hide Enchant Rune Particles",
@@ -134,31 +115,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
         subcategory = "Nether"
     )
     var attunementDisplay = false
-
-    @Switch(
-        name = "Vanquisher Broadcaster",
-        description = "sends patcher sendcoords msg when you spawn a vanquisher. might make this put a waypoint later",
-        category = "Random Beta Features",
-        subcategory = "Random Beta Features"
-    )
-    var vanqBroadcast = false
-
-    @Switch(
-        name = "Cancel Armor Glint",
-        description = "If you want all glint gone, I suggest using Patcher for that.",
-        category = "Random Beta Features",
-        subcategory = "Random Beta Features"
-    )
-    var cancelArmorGlint = false
-
-    @Text(
-        name = "Dynamic Key Command",
-        description = "'/dk help' for more info",
-        category = "Random Beta Features",
-        subcategory = "Random Beta Features",
-        secure = false
-    )
-    var dynamicCommandString = ""
 
     @Switch(
         name = "Hide Extra Nametags",

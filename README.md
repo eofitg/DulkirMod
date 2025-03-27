@@ -33,8 +33,6 @@ DulkirMod 1.21 can be found [here](https://github.com/inglettronald/DulkirMod-Fa
  - this is motivated due to some more hypixel related performance issues, should improve performance in Arachne and Eman
 - Option to remove enchant glint on armor (fix for runes)
 - Pitch/Yaw Display (2 decimals)
-- "Dynamic Key" feature for quick Chat Macro Swapping
-   - run /dk help for more info
 
 ### Slayer Features
 - Blaze Slayer attunement display boxes (should be reliable)

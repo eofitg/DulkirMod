@@ -13,7 +13,6 @@
     "MixinGuiUtils",
     "MixinItem",
     "MixinItemRenderer",
-    "MixinLayerArmorBase",
     "MixinOldAnimations",
     "MixinSoundManager",
     "MixinWorld"

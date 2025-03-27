@@ -27,10 +27,5 @@ object ChatEvent {
 
         // FAKE MESSAGE SENDER (DULKIR ONLY)
         FakeMsg.handle(event, unformatted)
-
-        // Quick vanquisher thing
-        VanquisherTrigger.handle(unformatted)
-
-        DoubleHookDing.handle(event, unformatted)
     }
 }

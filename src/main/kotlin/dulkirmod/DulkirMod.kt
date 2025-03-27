@@ -49,7 +49,6 @@ class DulkirMod {
         cch.registerCommand(SettingsCommand())
         cch.registerCommand(HurtCamCommand())
         cch.registerCommand(FarmingControlSchemeCommand())
-        cch.registerCommand(DynamicKeyCommand())
         cch.registerCommand(ResetSlayerTracker())
     }
 
@@ -118,9 +117,6 @@ class DulkirMod {
         if (keyBinds[2].isPressed) {
             FarmingControlSchemeCommand.toggleControls()
         }
-        if (keyBinds[3].isPressed) {
-            TextUtils.sendMessage("/${DulkirConfig.dynamicCommandString}")
-        }
     }
 
     companion object {
@@ -138,7 +134,6 @@ class DulkirMod {
             KeyBinding("Open Settings", Keyboard.KEY_RCONTROL, "Dulkir Mod"),
             KeyBinding("Toggle Selfie Setting", Keyboard.KEY_NONE, "Dulkir Mod"),
             KeyBinding("Toggle Farming Controls", Keyboard.KEY_NONE, "Dulkir Mod"),
-            KeyBinding("Dynamic Key", Keyboard.KEY_NONE, "Dulkir Mod")
         )
     }
 
