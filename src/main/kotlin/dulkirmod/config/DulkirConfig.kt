@@ -6,7 +6,7 @@ import cc.polyfrost.oneconfig.config.data.Mod
 import cc.polyfrost.oneconfig.config.data.ModType
 
 
-object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-config.json") {
+object DulkirConfig : Config(Mod("SwingSpeed", ModType.PVP), "swingspeed-config.json") {
 
     // CUSTOM ANIMATIONS
     @Switch(
