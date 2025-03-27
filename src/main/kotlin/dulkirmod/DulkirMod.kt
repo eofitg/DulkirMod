@@ -2,9 +2,6 @@ package dulkirmod
 
 import dulkirmod.command.*
 import dulkirmod.config.DulkirConfig
-import dulkirmod.events.ChatEvent
-import dulkirmod.features.*
-import dulkirmod.utils.*
 import kotlinx.coroutines.CoroutineScope
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
@@ -31,17 +28,11 @@ import kotlin.coroutines.EmptyCoroutineContext
 )
 class DulkirMod {
 
-    var lastLongUpdate: Long = 0
-    var lastLongerUpdate: Long = 0
-
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
         val directory = File(event.modConfigurationDirectory, "dulkirmod")
         directory.mkdirs()
         val cch = ClientCommandHandler.instance
-
-        // REGISTER COMMANDS HERE        // Help Commands
-        cch.registerCommand(HelpCommand())
 
         // General
         cch.registerCommand(SettingsCommand())
@@ -53,13 +44,6 @@ class DulkirMod {
         // REGISTER Classes and such HERE
         val mcBus = MinecraftForge.EVENT_BUS
         mcBus.register(this)
-        mcBus.register(ChatEvent)
-        mcBus.register(TitleUtils)
-        mcBus.register(ArachneTimer)
-        mcBus.register(MatchoAlert)
-        mcBus.register(ContainerNameUtil)
-        mcBus.register(KeeperWaypoints)
-        mcBus.register(WorldRenderUtils)
 
         keyBinds.forEach(ClientRegistry::registerKeyBinding)
     }
@@ -69,21 +53,6 @@ class DulkirMod {
         if (event.phase == TickEvent.Phase.START && display != null) {
             mc.displayGuiScreen(display)
             display = null
-        }
-
-        val currTime = System.currentTimeMillis()
-        if (currTime - lastLongUpdate > 1000) { // long update
-            alarmClock()
-            brokenHypeNotif()
-            MatchoAlert.alert()
-            // Now I don't have to fetch the entries for multiple things, this just updates and caches
-            // the data structure on 1s cooldown
-            TabListUtils.parseTabEntries()
-            lastLongUpdate = currTime
-        }
-
-        if (currTime - lastLongerUpdate > 5000) { // longer update
-            lastLongerUpdate = currTime
         }
     }
 

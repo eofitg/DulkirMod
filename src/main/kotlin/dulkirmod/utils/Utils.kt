@@ -11,9 +11,6 @@ import java.awt.datatransfer.StringSelection
 import java.util.*
 
 object Utils {
-	fun stripColorCodes(string: String): String {
-		return string.replace("§.".toRegex(), "")
-	}
 
 	fun animationConfigToString() {
 		var s = ""
@@ -48,18 +45,6 @@ object Utils {
 			TextUtils.info("§6§lCurrent clipboard is not a recognizable Custom Animation Preset.")
 		}
 		mc.displayGuiScreen(null)
-	}
-
-	fun isInSkyblock(): Boolean {
-		if (mc.theWorld == null || mc.thePlayer == null) return false
-        if (mc.isSingleplayer) return false
-		if (mc.thePlayer.clientBrand?.contains("hypixel", true) == false) return false
-        val objective = mc.thePlayer.worldScoreboard.getObjectiveInDisplaySlot(1) ?: return false
-		return stripColorCodes(objective.displayName).contains("skyblock", true)
-	}
-
-	fun getColorString(int: Int): String {
-		return if (int == 16) "§z" else EnumChatFormatting.values()[int].toString()
 	}
 
 }

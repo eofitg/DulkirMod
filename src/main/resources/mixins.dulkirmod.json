@@ -8,8 +8,6 @@
     "MixinEntityLivingBase",
     "MixinItem",
     "MixinItemRenderer",
-    "MixinOldAnimations",
-    "MixinSoundManager",
-    "MixinWorld"
+    "MixinOldAnimations"
   ]
 }
