@@ -39,7 +39,6 @@ object Utils {
 			DulkirConfig.customYaw = import.yaw
 			DulkirConfig.customPitch = import.pitch
 			DulkirConfig.customRoll = import.roll
-			DulkirConfig.drinkingSelector = import.drinkingFix
 			DulkirConfig.ignoreHaste = import.ignoreHaste
 		} catch (e: Exception) {
 			TextUtils.info("§6§lCurrent clipboard is not a recognizable Custom Animation Preset.")

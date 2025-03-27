@@ -12,6 +12,5 @@ data class ConfigData(
     val pitch: Float = DulkirConfig.customPitch,
     val roll: Float = DulkirConfig.customRoll,
     val speed: Float = DulkirConfig.customSpeed,
-    val ignoreHaste: Boolean = DulkirConfig.ignoreHaste,
-    val drinkingFix: Int = DulkirConfig.drinkingSelector,
+    val ignoreHaste: Boolean = DulkirConfig.ignoreHaste
 )

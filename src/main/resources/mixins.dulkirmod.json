@@ -6,7 +6,6 @@
   "client": [
     "MixinEntity",
     "MixinEntityLivingBase",
-    "MixinItem",
     "MixinItemRenderer",
     "MixinOldAnimations"
   ]

@@ -124,15 +124,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
     )
     var ignoreHaste = true
 
-    @Dropdown(
-        name = "Drinking Fix",
-        description = "Pick how to handle drinking animations.",
-        category = "Animations",
-        subcategory = "Fixes",
-        options = ["No fix", "Rotationless", "Fixed"]
-    )
-    var drinkingSelector = 2
-
     @Button(
         name = "Reset Item Values",
         description = "Vanilla Look! Closes Settings GUI.",
@@ -173,24 +164,7 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
     )
     fun stringToConfig() = Utils.animationStringtoConfig()
 
-    @Switch(
-        name = "Turn off re-equip animation",
-        description = "Will stop the spam re-equip when stuff like cultivating is updating",
-        category = "Animations",
-        subcategory = "Fixes"
-    )
-    var cancelReequip = false
-
-    @Switch(
-        name = "Show re-equip animation when changing slots",
-        description = "Will overwrite \"Turn off re-equip animation\" when switching the slot.",
-        category = "Animations",
-        subcategory = "Fixes"
-    )
-    var showReEquipAnimationWhenChangingSlots = true
-
     fun init() {
         initialize()
-        addDependency("showReEquipAnimationWhenChangingSlots", "cancelReequip")
     }
 }
