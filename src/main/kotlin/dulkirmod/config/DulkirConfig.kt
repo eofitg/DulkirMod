@@ -6,9 +6,6 @@ import cc.polyfrost.oneconfig.config.annotations.Number
 import cc.polyfrost.oneconfig.config.data.Mod
 import cc.polyfrost.oneconfig.config.data.ModType
 import dulkirmod.DulkirMod
-import dulkirmod.overlays.GardenInfoHud
-import dulkirmod.overlays.SlayerTracker
-import dulkirmod.overlays.YawDisplayHud
 import dulkirmod.utils.Utils
 
 
@@ -487,33 +484,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
     var keeperFocus = false
 
     @Switch(
-        name = "Garden Visitor Alert",
-        description = "Notifies you if you have max garden visitors in queue",
-        category = "Farming",
-        subcategory = "Farming"
-    )
-    var notifyMaxVisitors = false
-
-    @Switch(
-        name = "Persistent alert",
-        description = "If turned on, the alert will continue to flash until dealt with.",
-        category = "Farming",
-        subcategory = "Farming"
-    )
-    var persistentAlert = true
-
-    @Slider(
-        name = "Default Sensitivity",
-        description = "For use with the /farmcontrols command toggle",
-        category = "Farming",
-        subcategory = "Farming",
-        min = 0f,
-        max = 2f,
-        step = 0
-    )
-    var defaultSens = .7f
-
-    @Switch(
         name = "Turn off re-equip animation",
         description = "Will stop the spam re-equip when stuff like cultivating is updating",
         category = "Animations",
@@ -529,84 +499,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
     )
     var showReEquipAnimationWhenChangingSlots = true
 
-    @HUD(
-        name = "Pitch/Yaw Display in Garden",
-        category = "HUD",
-        subcategory = "Farming"
-    )
-    var YawDisplayHud: YawDisplayHud = YawDisplayHud()
-
-    @Switch(
-        name = "Display Pitch as well",
-        description = "useful for some slime launcher stuff",
-        category = "HUD",
-        subcategory = "Farming"
-    )
-    var showPitch = false
-
-    @Switch(
-        name = "3 Decimals on Yaw",
-        description = "are u ok bro",
-        category = "HUD",
-        subcategory = "Farming"
-    )
-    var yaw3Decimals = false
-
-    @Switch(
-        name = "Display outside garden",
-        description = "Useful for something!",
-        category = "HUD",
-        subcategory = "Farming"
-    )
-    var showYawEverywhere = false
-
-    @HUD(
-        name = "Garden Info Display",
-        category = "HUD",
-        subcategory = "Garden"
-    )
-    var GardenInfoHud: GardenInfoHud = GardenInfoHud()
-
-    @HUD(
-        name = "Slayer Tracker",
-        category = "HUD",
-        subcategory = "Slayer"
-    )
-    var slayerTracker: SlayerTracker = SlayerTracker()
-
-    @Number(
-        name = "Slayer XP per boss",
-        category = "HUD",
-        subcategory = "Slayer",
-        max = 2000f,
-        min = 5f
-    )
-    var slayerXP = 500
-
-    @Switch(
-        name = "Empty Composter Notif",
-        description = "Will display in HUD instead of giga-alert",
-        category = "HUD",
-        subcategory = "Garden"
-    )
-    var composterAlert = true
-
-    @Switch(
-        name = "Farming Milestone Display",
-        description = "Increasing number go brr",
-        category = "HUD",
-        subcategory = "Garden"
-    )
-    var gardenMilestoneDisplay = true
-
-    @Switch(
-        name = "Visitor Info",
-        description = "Show number present and time until next",
-        category = "HUD",
-        subcategory = "Garden"
-    )
-    var visitorInfo = true
-
     fun init() {
         initialize()
         addDependency("customMessage", "throttleNotifier")
@@ -617,7 +509,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
         addDependency("abiCallerID", "abiDND")
         addDependency("hurtCamIntensity", "hurtCamSlider")
         addDependency("tooltipSize", "scaledTooltips")
-        addDependency("persistentAlert", "notifyMaxVisitors")
         addDependency("secretSoundVolume", "secretClickSounds")
         addDependency("demoSecretVolume", "secretClickSounds")
         addDependency("archerBoxEverywhere", "archerBox")

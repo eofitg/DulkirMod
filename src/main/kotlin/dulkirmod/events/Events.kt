@@ -17,5 +17,3 @@ class EntityRemovedEvent(val entity: Entity) : Event()
 data class AlwaysPlaySoundEvent(val sound: ISound, val soundManager: SoundManager) : Event() {
     val name = sound.soundLocation.resourcePath
 }
-
-class SlayerTypeChangeEvent : Event()

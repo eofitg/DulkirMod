@@ -48,8 +48,6 @@ class DulkirMod {
         cch.registerCommand(EnchantRuneCommand())
         cch.registerCommand(SettingsCommand())
         cch.registerCommand(HurtCamCommand())
-        cch.registerCommand(FarmingControlSchemeCommand())
-        cch.registerCommand(ResetSlayerTracker())
     }
 
     @Mod.EventHandler
@@ -68,12 +66,10 @@ class DulkirMod {
         mcBus.register(AbiphoneDND)
         mcBus.register(KeeperWaypoints)
         mcBus.register(ScalableTooltips)
-        mcBus.register(GardenVisitorAlert)
         mcBus.register(BlazeSlayerFeatures)
         mcBus.register(WorldRenderUtils)
         mcBus.register(ReaperDisplay)
         mcBus.register(ImpactDisplay)
-        mcBus.register(SlayerTrackerUtil)
 
         keyBinds.forEach(ClientRegistry::registerKeyBinding)
     }
@@ -92,12 +88,10 @@ class DulkirMod {
         if (currTime - lastLongUpdate > 1000) { // long update
             alarmClock()
             brokenHypeNotif()
-            GardenVisitorAlert.alert()
             MatchoAlert.alert()
             // Now I don't have to fetch the entries for multiple things, this just updates and caches
             // the data structure on 1s cooldown
             TabListUtils.parseTabEntries()
-            SlayerTrackerUtil.updateSessionTime()
             lastLongUpdate = currTime
         }
 
@@ -113,9 +107,6 @@ class DulkirMod {
         if (keyBinds[1].isPressed) {
             DulkirConfig.noReverse3rdPerson = !DulkirConfig.noReverse3rdPerson
             TextUtils.toggledMessage("No Selfie Camera", DulkirConfig.noReverse3rdPerson)
-        }
-        if (keyBinds[2].isPressed) {
-            FarmingControlSchemeCommand.toggleControls()
         }
     }
 
@@ -133,7 +124,6 @@ class DulkirMod {
         val keyBinds = arrayOf(
             KeyBinding("Open Settings", Keyboard.KEY_RCONTROL, "Dulkir Mod"),
             KeyBinding("Toggle Selfie Setting", Keyboard.KEY_NONE, "Dulkir Mod"),
-            KeyBinding("Toggle Farming Controls", Keyboard.KEY_NONE, "Dulkir Mod"),
         )
     }
 

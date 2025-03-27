@@ -15,7 +15,6 @@ object TabListUtils {
 
     var area: String = ""
     var explosivity: Boolean = false
-    var maxVisitors: Boolean = false
     var emptyComposter: Boolean = false
     var gardenMilestone: String = ""
     var timeTillNextVisitor: String = ""
@@ -81,7 +80,6 @@ object TabListUtils {
 
                 trimmed.contains(nextVisitorPattern) -> {
                     timeTillNextVisitor = nextVisitorPattern.find(trimmed)!!.groups[1]!!.value
-                    maxVisitors = timeTillNextVisitor == "Queue Full!"
                 }
 
                 line.contains("(Archer") -> {
@@ -92,9 +90,6 @@ object TabListUtils {
 
         if (area != "Crimson Isle") {
             explosivity = false
-        }
-        if (area != "Garden") {
-            maxVisitors = false
         }
         if (!numVisitorsFlag) {
             numVisitors = -1

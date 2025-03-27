@@ -32,7 +32,6 @@ DulkirMod 1.21 can be found [here](https://github.com/inglettronald/DulkirMod-Fa
 - Perfomance option of Blank Armor Stand Removal
  - this is motivated due to some more hypixel related performance issues, should improve performance in Arachne and Eman
 - Option to remove enchant glint on armor (fix for runes)
-- Pitch/Yaw Display (2 decimals)
 
 ### Slayer Features
 - Blaze Slayer attunement display boxes (should be reliable)
