@@ -2,11 +2,8 @@ package dulkirmod.config
 
 import cc.polyfrost.oneconfig.config.Config
 import cc.polyfrost.oneconfig.config.annotations.*
-import cc.polyfrost.oneconfig.config.annotations.Number
 import cc.polyfrost.oneconfig.config.data.Mod
 import cc.polyfrost.oneconfig.config.data.ModType
-import dulkirmod.DulkirMod
-import dulkirmod.utils.Utils
 
 
 object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-config.json") {
@@ -123,46 +120,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
         subcategory = "Animations",
     )
     var ignoreHaste = true
-
-    @Button(
-        name = "Reset Item Values",
-        description = "Vanilla Look! Closes Settings GUI.",
-        category = "Animations",
-        subcategory = "Animations",
-        text = "Reset!"
-    )
-    fun demoButton() {
-        customSize = 0f
-        customX = 0f
-        customY = 0f
-        customZ = 0f
-        customRoll = 0f
-        customPitch = 0f
-        customYaw = 0f
-        doesScaleSwing = true
-        ignoreHaste = true
-        customSpeed = 0f
-        DulkirMod.mc.displayGuiScreen(null)
-    }
-
-    @Button(
-        name = "Export Preset as String",
-        description = "Base64 representation of your current config - will copy to clipboard when pressed.",
-        category = "Animations",
-        subcategory = "Presets",
-        text = "Export!"
-    )
-    fun presetString() = Utils.animationConfigToString()
-
-
-    @Button(
-        name = "Import Preset from Clipboard",
-        description = "Base64 representation of your config accepted from clipboard. Closes gui.",
-        category = "Animations",
-        subcategory = "Presets",
-        text = "Import!"
-    )
-    fun stringToConfig() = Utils.animationStringtoConfig()
 
     fun init() {
         initialize()
