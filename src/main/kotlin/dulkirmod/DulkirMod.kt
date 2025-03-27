@@ -5,9 +5,6 @@ import dulkirmod.config.DulkirConfig
 import dulkirmod.events.ChatEvent
 import dulkirmod.features.*
 import dulkirmod.features.chat.AbiphoneDND
-import dulkirmod.features.rift.EffigyWaypoint
-import dulkirmod.features.rift.IchorHighlight
-import dulkirmod.features.rift.SteakDisplay
 import dulkirmod.utils.*
 import kotlinx.coroutines.CoroutineScope
 import net.minecraft.client.Minecraft
@@ -75,11 +72,8 @@ class DulkirMod {
         mcBus.register(GardenVisitorAlert)
         mcBus.register(BlazeSlayerFeatures)
         mcBus.register(WorldRenderUtils)
-        mcBus.register(IchorHighlight)
-        mcBus.register(SteakDisplay)
         mcBus.register(ReaperDisplay)
         mcBus.register(ImpactDisplay)
-        mcBus.register(EffigyWaypoint)
         mcBus.register(SlayerTrackerUtil)
 
         keyBinds.forEach(ClientRegistry::registerKeyBinding)
@@ -104,7 +98,6 @@ class DulkirMod {
             // Now I don't have to fetch the entries for multiple things, this just updates and caches
             // the data structure on 1s cooldown
             TabListUtils.parseTabEntries()
-            EffigyWaypoint.checkEffigies()
             SlayerTrackerUtil.updateSessionTime()
             lastLongUpdate = currTime
         }

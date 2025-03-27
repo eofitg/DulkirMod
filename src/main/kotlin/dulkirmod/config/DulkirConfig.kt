@@ -651,31 +651,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
     )
     var visitorInfo = true
 
-    @Switch(
-        name = "Steak Display",
-        description = "Show a hitbox around a mob when it can be 1 shot with Steak",
-        category = "Rift",
-        subcategory = "Vamp Slayer"
-    )
-    var steakDisplay = false
-
-    @Switch(
-        name = "Ichor Highlight",
-        description = "Shows a hitbox around current ichors",
-        category = "Rift",
-        subcategory = "Vamp Slayer"
-    )
-    var ichorHighlight = false
-
-    @Switch(
-        name = "Inactive Effigy Waypoint",
-        description = "Useful for learning/remembering where the effigies are in relation to the scoreboard position",
-        category = "Rift",
-        subcategory = "Vamp Slayer"
-    )
-    var effigyWaypoint = false
-
-
     fun init() {
         initialize()
         addDependency("customMessage", "throttleNotifier")
