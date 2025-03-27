@@ -16,7 +16,6 @@ import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent
 import net.minecraftforge.fml.common.gameevent.TickEvent
 import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent
 import org.lwjgl.input.Keyboard
-import java.io.File
 
 @Mod(
     modid = DulkirMod.MOD_ID,
@@ -28,10 +27,7 @@ class DulkirMod {
 
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
-        val directory = File(event.modConfigurationDirectory, "dulkirmod")
-        directory.mkdirs()
         val cch = ClientCommandHandler.instance
-
         // General
         cch.registerCommand(SettingsCommand())
     }
