@@ -60,8 +60,8 @@ class DulkirMod {
     }
 
     companion object {
-        const val MOD_ID = "dulkirmod"
-        const val MOD_NAME = "Dulkir Mod"
+        const val MOD_ID = "swingspeed"
+        const val MOD_NAME = "Swing Speed"
         const val MOD_VERSION = "1.2.9"
 
         val mc: Minecraft = Minecraft.getMinecraft()
@@ -69,7 +69,7 @@ class DulkirMod {
         var display: GuiScreen? = null
 
         val keyBinds = arrayOf(
-            KeyBinding("Open Settings", Keyboard.KEY_RCONTROL, "Dulkir Mod")
+            KeyBinding("Open Settings", Keyboard.KEY_RCONTROL, "Swing Speed")
         )
     }
 

@@ -106,7 +106,7 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.withType(Jar::class) {
-    archiveBaseName.set("dulkirmod")
+    archiveBaseName.set("swingspeed")
     manifest.attributes.run {
         this["FMLCorePluginContainsFMLMod"] = "true"
         this["ForceLoadAsMod"] = "true"
