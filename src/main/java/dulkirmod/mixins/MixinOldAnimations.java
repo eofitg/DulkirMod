@@ -24,7 +24,7 @@ public class MixinOldAnimations {
 
     @Inject(method = "renderItemInFirstPerson", at = @At(value = "HEAD"), cancellable = true)
     public void disableOldAnimStuff(ItemRenderer renderer, ItemStack stack, float equipProgress, float partialTicks, CallbackInfoReturnable<Boolean> cir) {
-        if (DulkirMod.Companion.getConfig().getCustomAnimations())
+        if (DulkirMod.Companion.getConfig().getGlobalEnabled())
             cir.setReturnValue(false);
     }
 }

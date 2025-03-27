@@ -15,7 +15,7 @@ object DulkirConfig : Config(Mod("SwingSpeed", ModType.PVP), "swingspeed-config.
         category = "Animations",
         subcategory = "Animations"
     )
-    var customAnimations = false
+    var globalEnabled = true
 
     @Slider(
         name = "Speed",
@@ -26,7 +26,7 @@ object DulkirConfig : Config(Mod("SwingSpeed", ModType.PVP), "swingspeed-config.
         max = 1f,
         step = 0
     )
-    var customSpeed = 0f
+    var speed = 0f
 
     @Checkbox(
         name = "Ignore Haste",
@@ -34,7 +34,7 @@ object DulkirConfig : Config(Mod("SwingSpeed", ModType.PVP), "swingspeed-config.
         category = "Animations",
         subcategory = "Animations",
     )
-    var ignoreHaste = true
+    var disregardHaste = true
 
     fun init() {
         initialize()

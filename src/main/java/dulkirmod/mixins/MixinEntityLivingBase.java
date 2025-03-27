@@ -22,12 +22,12 @@ public abstract class MixinEntityLivingBase extends MixinEntity {
 
     @Inject(method = "getArmSwingAnimationEnd()I", at = @At("HEAD"), cancellable = true)
     public void adjustSwingLength(CallbackInfoReturnable<Integer> cir) {
-        if (!DulkirMod.Companion.getConfig().getCustomAnimations()) return;
-        int length = DulkirMod.Companion.getConfig().getIgnoreHaste() ? 6 : this.isPotionActive(Potion.digSpeed) ?
+        if (!DulkirMod.Companion.getConfig().getGlobalEnabled()) return;
+        int length = DulkirMod.Companion.getConfig().getDisregardHaste() ? 6 : this.isPotionActive(Potion.digSpeed) ?
                 6 - (1 + this.getActivePotionEffect(Potion.digSpeed).getAmplifier()) :
                 (this.isPotionActive(Potion.digSlowdown) ?
                         6 + (1 + this.getActivePotionEffect(Potion.digSlowdown).getAmplifier()) * 2 :
                         6);
-        cir.setReturnValue(Math.max((int) (length * Math.exp(-DulkirMod.Companion.getConfig().getCustomSpeed())), 1));
+        cir.setReturnValue(Math.max((int) (length * Math.exp(-DulkirMod.Companion.getConfig().getSpeed())), 1));
     }
 }
