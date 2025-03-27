@@ -4,7 +4,6 @@ import dulkirmod.command.*
 import dulkirmod.config.DulkirConfig
 import dulkirmod.events.ChatEvent
 import dulkirmod.features.*
-import dulkirmod.features.chat.AbiphoneDND
 import dulkirmod.utils.*
 import kotlinx.coroutines.CoroutineScope
 import net.minecraft.client.Minecraft
@@ -45,9 +44,7 @@ class DulkirMod {
         cch.registerCommand(HelpCommand())
 
         // General
-        cch.registerCommand(EnchantRuneCommand())
         cch.registerCommand(SettingsCommand())
-        cch.registerCommand(HurtCamCommand())
     }
 
     @Mod.EventHandler
@@ -56,29 +53,19 @@ class DulkirMod {
         // REGISTER Classes and such HERE
         val mcBus = MinecraftForge.EVENT_BUS
         mcBus.register(this)
-        mcBus.register(MemoryLeakFix)
         mcBus.register(ChatEvent)
-        mcBus.register(NametagCleaner)
         mcBus.register(TitleUtils)
         mcBus.register(ArachneTimer)
         mcBus.register(MatchoAlert)
         mcBus.register(ContainerNameUtil)
-        mcBus.register(AbiphoneDND)
         mcBus.register(KeeperWaypoints)
-        mcBus.register(ScalableTooltips)
-        mcBus.register(BlazeSlayerFeatures)
         mcBus.register(WorldRenderUtils)
-        mcBus.register(ReaperDisplay)
-        mcBus.register(ImpactDisplay)
 
         keyBinds.forEach(ClientRegistry::registerKeyBinding)
     }
 
     @SubscribeEvent
     fun onTick(event: ClientTickEvent) {
-        if (DulkirConfig.noReverse3rdPerson && mc.gameSettings.thirdPersonView == 2)
-            mc.gameSettings.thirdPersonView = 0
-
         if (event.phase == TickEvent.Phase.START && display != null) {
             mc.displayGuiScreen(display)
             display = null
@@ -96,7 +83,6 @@ class DulkirMod {
         }
 
         if (currTime - lastLongerUpdate > 5000) { // longer update
-            MemoryLeakFix.clearBlankStands()
             lastLongerUpdate = currTime
         }
     }
@@ -104,10 +90,6 @@ class DulkirMod {
     @SubscribeEvent
     fun onKey(event: KeyInputEvent) {
         if (keyBinds[0].isPressed) config.openGui()
-        if (keyBinds[1].isPressed) {
-            DulkirConfig.noReverse3rdPerson = !DulkirConfig.noReverse3rdPerson
-            TextUtils.toggledMessage("No Selfie Camera", DulkirConfig.noReverse3rdPerson)
-        }
     }
 
     companion object {
@@ -122,8 +104,7 @@ class DulkirMod {
         val scope = CoroutineScope(EmptyCoroutineContext)
 
         val keyBinds = arrayOf(
-            KeyBinding("Open Settings", Keyboard.KEY_RCONTROL, "Dulkir Mod"),
-            KeyBinding("Toggle Selfie Setting", Keyboard.KEY_NONE, "Dulkir Mod"),
+            KeyBinding("Open Settings", Keyboard.KEY_RCONTROL, "Dulkir Mod")
         )
     }
 

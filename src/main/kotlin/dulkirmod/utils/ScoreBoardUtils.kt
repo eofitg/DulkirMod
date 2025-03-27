@@ -5,7 +5,6 @@ import net.minecraft.scoreboard.Score
 import net.minecraft.scoreboard.ScorePlayerTeam
 
 object ScoreBoardUtils {
-    var isInM7: Boolean = false;
     fun getLines(): MutableList<String> {
         val scoreboard = DulkirMod.mc.thePlayer.worldScoreboard
         val sidebarObjective = scoreboard.getObjectiveInDisplaySlot(1)
@@ -20,26 +19,4 @@ object ScoreBoardUtils {
         return lines
     }
 
-    fun inM7(): Boolean {
-        if (!Utils.isInSkyblock()) {
-            isInM7 = false
-            return false
-        }
-        val lines = getLines()
-        if (lines.size < 4) {
-            isInM7 = false
-            return false
-        }
-        val line = lines.getOrNull(3)
-        var unformattedText = line?.replace("\\p{So}|\\p{Sk}".toRegex(), "")
-        if (unformattedText != null) {
-            unformattedText = Utils.stripColorCodes(unformattedText)
-        }
-        if (unformattedText == "  The Catacombs (M7)") {
-            isInM7 = true
-            return true
-        }
-        isInM7 = false
-        return false
-    }
 }

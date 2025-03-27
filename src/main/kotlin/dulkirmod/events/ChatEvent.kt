@@ -22,9 +22,6 @@ object ChatEvent {
         // BRIDGE BOT STUFF - CLICKABLE LINKS!
         Bridge.handle(event)
 
-        // DO NOT DISTURB FOR ABIPHONE
-        AbiphoneDND.handle(event, unformatted)
-
         // FAKE MESSAGE SENDER (DULKIR ONLY)
         FakeMsg.handle(event, unformatted)
     }

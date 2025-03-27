@@ -11,116 +11,6 @@ import dulkirmod.utils.Utils
 
 object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-config.json") {
 
-    @Switch(
-        name = "Patch Crimson Isle memory leak",
-        description = "This was a temporary fix for the memory leak on crimson isles. It is now deprecated.",
-        category = "General",
-        subcategory = "General"
-    )
-    var crimsonIslesMemoryLeakPatch = false
-
-    @Switch(
-        name = "Remove Useless Armor Stands",
-        description = "Another hypixel issue, should be useful for eman/arachne still.",
-        category = "General",
-        subcategory = "General"
-    )
-    var blankStandRemoval = false
-
-    @Switch(
-        name = "Hide Enchant Rune Particles",
-        description = "ugly go bye-bye",
-        category = "General",
-        subcategory = "General"
-    )
-    var hideEnchantRune = false
-
-    @Switch(
-        name = "Reaper Armor Cooldown Display",
-        description = "Will show as item durability",
-        category = "General",
-        subcategory = "General"
-    )
-    var displayReaperCD = false
-
-    @Switch(
-        name = "Wither Impact Cooldown Display",
-        description = "Will show as item durability",
-        category = "General",
-        subcategory = "General"
-    )
-    var displayImpactCD = false
-
-    @Switch(
-        name = "Abiphone Do-Not-Disturb",
-        description = "Detects incoming calls and mutes ring audio for like 5 seconds. \nWorks as long as u don't lag particularly hard at the same time you're being called.",
-        category = "General",
-        subcategory = "General"
-    )
-    var abiDND = false
-
-    @Switch(
-        name = "Abiphone Caller ID",
-        description = "If DND is on, still give the player a quick 1 liner to tell them who is calling.",
-        category = "General",
-        subcategory = "General"
-    )
-    var abiCallerID = false
-
-    @Slider(
-        name = "Hurt Cam Intensity",
-        description = "1 is default, make sure other mods noHurtCam stuff is off",
-        category = "General",
-        subcategory = "General",
-        min = 0f,
-        max = 2f,
-        step = 0
-    )
-    var hurtCamIntensity = 1f
-
-    @Switch(
-        name = "Tooltip Features",
-        description = "Turns on scrollable and (optional) scalable tooltips.",
-        category = "General",
-        subcategory = "General"
-    )
-    var scaledTooltips = false
-
-    @Slider(
-        name = "Tooltip Scale",
-        description = "1 is default",
-        category = "General",
-        subcategory = "General",
-        min = 0f,
-        max = 2f,
-        step = 0
-    )
-    var tooltipSize = 1f
-
-    @Switch(
-        name = "Highlight Blaze slayer Minibosses",
-        description = "HITBOXES!",
-        category = "General",
-        subcategory = "Nether"
-    )
-    var minibossHitbox = false
-
-    @Switch(
-        name = "Blaze Slayer Attunement Display",
-        description = "Shows a hit-box to indicate what dagger you should use",
-        category = "General",
-        subcategory = "Nether"
-    )
-    var attunementDisplay = false
-
-    @Switch(
-        name = "Hide Extra Nametags",
-        description = "Prevents some nametags not covered by skytils \"Hide non-starred nametags\" from rendering.",
-        category = "General",
-        subcategory = "General"
-    )
-    var hideTags = true
-
     // CUSTOM ANIMATIONS
     @Switch(
         name = "Global Toggle",
@@ -282,14 +172,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
         text = "Import!"
     )
     fun stringToConfig() = Utils.animationStringtoConfig()
-
-    @Switch(
-        name = "Remove Selfie Camera",
-        description = "Get rid of pesky reverse third person!",
-        category = "General",
-        subcategory = "General"
-    )
-    var noReverse3rdPerson = false
 
     @Switch(
         name = "Bridge Bot Formatter",
@@ -502,13 +384,9 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
     fun init() {
         initialize()
         addDependency("customMessage", "throttleNotifier")
-        addDependency("throttleNotifierSpam", "throttleNotifier")
         addDependency("bestiaryNotifVol", "bestiaryAlertSounds")
         addDependency("demoVolume", "bestiaryAlertSounds")
         addDependency("highlightLeapName", "highlightLeap")
-        addDependency("abiCallerID", "abiDND")
-        addDependency("hurtCamIntensity", "hurtCamSlider")
-        addDependency("tooltipSize", "scaledTooltips")
         addDependency("secretSoundVolume", "secretClickSounds")
         addDependency("demoSecretVolume", "secretClickSounds")
         addDependency("archerBoxEverywhere", "archerBox")
