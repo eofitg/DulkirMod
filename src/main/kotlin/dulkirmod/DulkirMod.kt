@@ -28,14 +28,12 @@ class DulkirMod {
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
         val cch = ClientCommandHandler.instance
-        // General
         cch.registerCommand(SettingsCommand())
     }
 
     @Mod.EventHandler
     fun onInit(event: FMLInitializationEvent) {
         config.init()
-        // REGISTER Classes and such HERE
         val mcBus = MinecraftForge.EVENT_BUS
         mcBus.register(this)
 
