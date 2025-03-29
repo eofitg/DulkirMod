@@ -1,8 +1,7 @@
 package dulkirmod.mixins;
 
 
-import dulkirmod.DulkirMod;
-import dulkirmod.config.DulkirConfig;
+import dulkirmod.config.ConfigReader;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -23,19 +22,18 @@ public abstract class MixinEntityLivingBase extends MixinEntity {
 
     @Inject(method = "getArmSwingAnimationEnd()I", at = @At("HEAD"), cancellable = true)
     public void adjustSwingLength(CallbackInfoReturnable<Integer> cir) {
-        if (!DulkirMod.Companion.getConfig().getGlobalEnabled()) return;
-        DulkirConfig config = DulkirMod.Companion.getConfig();
+        if (!ConfigReader.isGlobalEnabled()) return;
         int length = 6;
-        if (isPotionActive(Potion.digSpeed) && !config.getDisregardHaste()) {
+        if (isPotionActive(Potion.digSpeed) && !ConfigReader.isIgnoreHaste()) {
             length -= (1 + getActivePotionEffect(Potion.digSpeed).getAmplifier());
-            cir.setReturnValue(Math.max((int) (length * Math.exp(-config.getHasteSpeed())), 1));
+            cir.setReturnValue(Math.max((int) (length * Math.exp(-ConfigReader.getHasteSpeed())), 1));
         }
-        else if (isPotionActive(Potion.digSlowdown) && !config.getDisregardFatigue()) {
+        else if (isPotionActive(Potion.digSlowdown) && !ConfigReader.isIgnoreFatigue()) {
             length += (1 + getActivePotionEffect(Potion.digSlowdown).getAmplifier()) * 2;
-            cir.setReturnValue(Math.max((int) (length * Math.exp(-config.getFatigueSpeed())), 1));
+            cir.setReturnValue(Math.max((int) (length * Math.exp(-ConfigReader.getFatigueSpeed())), 1));
         }
         else {
-            cir.setReturnValue(Math.max((int) (length * Math.exp(-config.getSpeed())), 1));
+            cir.setReturnValue(Math.max((int) (length * Math.exp(-ConfigReader.getSwingSpeed())), 1));
         }
     }
 }

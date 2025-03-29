@@ -1,6 +1,6 @@
 package dulkirmod.mixins;
 
-import dulkirmod.DulkirMod;
+import dulkirmod.config.ConfigReader;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -24,7 +24,7 @@ public class MixinOldAnimations {
 
     @Inject(method = "renderItemInFirstPerson", at = @At(value = "HEAD"), cancellable = true)
     public void disableOldAnimStuff(ItemRenderer renderer, ItemStack stack, float equipProgress, float partialTicks, CallbackInfoReturnable<Boolean> cir) {
-        if (DulkirMod.Companion.getConfig().getGlobalEnabled())
+        if (ConfigReader.isGlobalEnabled())
             cir.setReturnValue(false);
     }
 }

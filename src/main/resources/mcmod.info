@@ -3,10 +3,11 @@
     "modid": "swingspeed",
     "name": "Swing Speed",
     "description": "From DulkirMod's Animations Module.",
-    "version": "1.2.8",
+    "version": "2.0",
     "mcversion": "1.8.9",
     "authorList": [
-      "Dulkir"
+      "Dulkir",
+      "eofitg"
     ]
   }
 ]
